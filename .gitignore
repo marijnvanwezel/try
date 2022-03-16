@@ -1,0 +1,9 @@
+# Do NOT add any files created your IDE or operating system here. Use a
+# personal .gitignore instead.
+
+# Composer
+/vendor
+/composer.lock
+
+# Sandboxes
+/try_sandbox__*

@@ -1,0 +1,45 @@
+#!/usr/bin/env php
+<?php declare(strict_types=1);
+/**
+ * This file is part of marijnvanwezel/try.
+ *
+ * (c) Marijn van Wezel <marijnvanwezel@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+global $_composer_autoload_path;
+$composer_autoloader_path_candidates = isset($_composer_autoload_path) ? [$_composer_autoload_path] : [
+	__DIR__ . '/../../../autoload.php',
+	__DIR__ . '/../../autoload.php',
+	__DIR__ . '/../../vendor/autoload.php',
+	__DIR__ . '/../vendor/autoload.php'
+];
+
+// Try some plausible paths for the autoloader
+foreach ($composer_autoloader_path_candidates as $path) {
+    if (is_readable($path)) {
+        define('COMPOSER_AUTOLOADER_PATH', $path);
+        break;
+    }
+}
+
+if (!defined('COMPOSER_AUTOLOADER_PATH')) {
+    $errorMessage = 'You need to set up your project\'s dependencies using Composer:' . PHP_EOL . PHP_EOL .
+        '    composer install' . PHP_EOL . PHP_EOL .
+        'You can learn more about Composer on https://getcomposer.org/.' . PHP_EOL;
+
+    fwrite(STDERR, $errorMessage);
+
+    die(1);
+}
+
+if (!isset($argv[1])) {
+	fwrite(STDERR, "Usage: " . basename($argv[0]) . " <package>" . PHP_EOL);
+
+	die(1);
+}
+
+require COMPOSER_AUTOLOADER_PATH;
+(new \MarijnVanWezel\Try\Try_())->try(array_splice($argv, 1));

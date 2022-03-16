@@ -1,0 +1,43 @@
+{
+  "name": "marijnvanwezel/try",
+  "description": "Simple CLI tool to try Composer packages",
+  "type": "project",
+  "keywords": [
+    "sandbox",
+    "try"
+  ],
+  "homepage": "https://marijn.it",
+  "license": "GPL-3.0-only",
+  "authors": [
+    {
+      "name": "Marijn van Wezel",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/marijnvanwezel/try"
+  },
+  "require": {
+    "php": ">=7.4",
+    "ext-pcntl": "*",
+    "composer/composer": "^2.2",
+    "psy/psysh": "^0.11.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "MarijnVanWezel\\Try\\": "src/"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "8.0.0"
+    },
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "bin": [
+    "bin/try"
+  ],
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
