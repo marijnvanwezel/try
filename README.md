@@ -3,6 +3,8 @@ try - Simple CLI tool to try Composer packages
 
 **try** makes it super easy to try new Composer packages through the command-line. It was inspired by [timofurrer/try](https://github.com/timofurrer/try).
 
+![](/docs/asciinema.gif)
+
 Installation
 ============
 
