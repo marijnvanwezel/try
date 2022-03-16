@@ -1,7 +1,7 @@
 {
   "name": "marijnvanwezel/try",
   "description": "Simple CLI tool to try Composer packages",
-  "type": "project",
+  "type": "library",
   "keywords": [
     "sandbox",
     "try"
