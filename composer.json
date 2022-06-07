@@ -18,7 +18,7 @@
     "issues": "https://github.com/marijnvanwezel/try"
   },
   "require": {
-    "php": ">=7.4",
+    "php": "^8.0",
     "ext-pcntl": "*",
     "composer/composer": "^2.2",
     "psy/psysh": "^0.11.2"
@@ -29,9 +29,6 @@
     }
   },
   "config": {
-    "platform": {
-      "php": "8.0.0"
-    },
     "optimize-autoloader": true,
     "sort-packages": true
   },
